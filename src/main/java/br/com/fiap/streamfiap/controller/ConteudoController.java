@@ -36,7 +36,6 @@ public class ConteudoController {
         } catch (Exception e) {
             throw new RuntimeException("Erro ao buscar conteúdo por ID: " + id, e);
         }
-        return null;
     }
 
     // GET /api/conteudos/categoria/{categoria} - Buscar por categoria
