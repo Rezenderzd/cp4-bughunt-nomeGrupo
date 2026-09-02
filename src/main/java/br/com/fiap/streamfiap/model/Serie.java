@@ -11,7 +11,8 @@ public class Serie extends Conteudo implements Promocionavel {
     }
 
     // cria a série com os dados recebidos
-    public Serie(String titulo, String categoria, int duracaoMinutos, int classificacaoEtaria, int numeroTemporadas) {
+    public Serie(String titulo, String categoria, int duracaoMinutos, int classificacaoEtaria, int numeroTemporadas, boolean disponivel) {
+        super(titulo, categoria, duracaoMinutos, classificacaoEtaria, disponivel);
         this.numeroTemporadas = numeroTemporadas;
     }
 
