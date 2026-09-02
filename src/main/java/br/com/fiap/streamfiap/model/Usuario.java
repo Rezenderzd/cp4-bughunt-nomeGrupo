@@ -25,7 +25,7 @@ public class Usuario {
     }
 
     public boolean temCreditosSuficientes(double preco) {
-        return preco >= this.creditos;
+        return preco <= this.creditos;
     }
 
     public void debitarCreditos(double valor) {
