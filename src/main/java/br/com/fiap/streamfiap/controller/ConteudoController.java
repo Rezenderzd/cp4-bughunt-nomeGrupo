@@ -34,7 +34,7 @@ public class ConteudoController {
                     .orElseThrow(() -> new ConteudoNaoEncontradoException("Conteúdo não encontrado: " + id));
             return ResponseEntity.ok(conteudo).getBody();
         } catch (Exception e) {
-            // TODO: tratar isso depois
+            throw new RuntimeException("Erro ao buscar conteúdo por ID: " + id, e);
         }
         return null;
     }
