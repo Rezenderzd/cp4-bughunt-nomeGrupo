@@ -34,8 +34,9 @@ public class Usuario {
     }
 
     public Usuario alugar(Conteudo conteudo) throws ClassificacaoIndicativaException {
-
+        conteudo.setDisponivel(false);
         if (this.idade < conteudo.getClassificacaoEtaria()) {
+            conteudo.setDisponivel(true);
             throw new ClassificacaoIndicativaException("Usuário de " + this.idade
                     + " anos não pode assistir a " + conteudo.getTitulo()
                     + " (classificação " + conteudo.getClassificacaoEtaria() + " anos)");
@@ -44,6 +45,7 @@ public class Usuario {
         double p = conteudo.calcularPrecoAluguel();
 
         if (!temCreditosSuficientes(p)) {
+            conteudo.setDisponivel(true);
             throw new CreditosInsuficientesException("Créditos insuficientes para alugar " + conteudo.getTitulo());
         }
 
