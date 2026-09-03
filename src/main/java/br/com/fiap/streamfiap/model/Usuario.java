@@ -1,6 +1,7 @@
 package br.com.fiap.streamfiap.model;
 
 import br.com.fiap.streamfiap.exception.ClassificacaoIndicativaException;
+import br.com.fiap.streamfiap.exception.ConteudoIndisponivelException;
 import br.com.fiap.streamfiap.exception.CreditosInsuficientesException;
 import jakarta.persistence.*;
 
@@ -34,6 +35,9 @@ public class Usuario {
     }
 
     public Usuario alugar(Conteudo conteudo) throws ClassificacaoIndicativaException {
+        if(!conteudo.isDisponivel()){
+            new ConteudoIndisponivelException("Conteudo está indisponível no moemento");
+        }
         conteudo.setDisponivel(false);
         if (this.idade < conteudo.getClassificacaoEtaria()) {
             conteudo.setDisponivel(true);
