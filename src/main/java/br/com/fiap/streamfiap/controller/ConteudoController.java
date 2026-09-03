@@ -43,7 +43,7 @@ public class ConteudoController {
     public List<Conteudo> listarPorCategoria(@PathVariable String categoria) {
         List<Conteudo> resultado = new ArrayList<>();
         for (Conteudo conteudo : conteudoRepository.findAll()) {
-            if (conteudo.getCategoria() == categoria) {
+            if (conteudo.getCategoria().equalsIgnoreCase(categoria)) {
                 resultado.add(conteudo);
             }
         }
