@@ -31,13 +31,12 @@ public class Usuario {
     }
 
     public void debitarCreditos(double valor) {
-        // adiciona o valor aos créditos do usuário
         this.creditos = this.creditos - valor;
     }
 
-    public Usuario alugar(Conteudo conteudo) throws ClassificacaoIndicativaException {
+    public Usuario alugar(Conteudo conteudo){
         if(!conteudo.isDisponivel()){
-            throw new ConteudoIndisponivelException("Conteudo está indisponível no moemento");
+            throw new ConteudoIndisponivelException("Conteudo está indisponível no momento");
         }
         conteudo.setDisponivel(false);
         if (this.idade < conteudo.getClassificacaoEtaria()) {
