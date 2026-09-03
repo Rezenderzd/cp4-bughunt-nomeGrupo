@@ -41,8 +41,7 @@ public class Usuario {
                     + " anos não pode assistir a " + conteudo.getTitulo()
                     + " (classificação " + conteudo.getClassificacaoEtaria() + " anos)");
         }
-
-        double precoPagar = conteudo.calcularPrecoAluguel();
+        double precoPagar = Math.round(conteudo.calcularPrecoPromocional() * 100.0) / 100.0;
 
         if (!temCreditosSuficientes(precoPagar)) {
             conteudo.setDisponivel(true);
