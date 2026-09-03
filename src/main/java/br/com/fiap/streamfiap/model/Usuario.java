@@ -42,21 +42,21 @@ public class Usuario {
                     + " (classificação " + conteudo.getClassificacaoEtaria() + " anos)");
         }
 
-        double p = conteudo.calcularPrecoAluguel();
+        double precoPagar = conteudo.calcularPrecoAluguel();
 
-        if (!temCreditosSuficientes(p)) {
+        if (!temCreditosSuficientes(precoPagar)) {
             conteudo.setDisponivel(true);
             throw new CreditosInsuficientesException("Créditos insuficientes para alugar " + conteudo.getTitulo());
         }
 
-        debitarCreditos(p);
+        debitarCreditos(precoPagar);
         conteudo.setDisponivel(false);
 
         System.out.println("==================================================");
         System.out.println("RECIBO STREAMFIAP");
         System.out.println("Usuario: " + this.nome);
         System.out.println("Conteudo: " + conteudo.getTitulo());
-        System.out.println("Valor pago: R$ " + p);
+        System.out.println("Valor pago: R$ " + precoPagar);
         System.out.println("Creditos restantes: R$ " + this.creditos);
         System.out.println("Obrigado por usar o StreamFIAP!");
         System.out.println("==================================================");
