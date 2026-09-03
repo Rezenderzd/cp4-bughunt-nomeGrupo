@@ -29,9 +29,7 @@ public abstract class Conteudo {
         this.disponivel = disponivel;
     }
 
-    public double calcularPrecoAluguel() {
-        return 9.90;
-    }
+    public abstract double calcularPrecoAluguel();
 
     public double calcularPrecoPromocional() {
         if (this instanceof Promocionavel) {

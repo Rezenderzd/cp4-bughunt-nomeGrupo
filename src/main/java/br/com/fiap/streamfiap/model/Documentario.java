@@ -10,6 +10,11 @@ public class Documentario extends Conteudo {
     public Documentario() {
     }
 
+    @Override
+    public double calcularPrecoAluguel() {
+        return 0;
+    }
+
     public Documentario(String titulo, String categoria, int duracaoMinutos, int classificacaoEtaria, boolean disponivel, String tema) {
         super(titulo, categoria, duracaoMinutos, classificacaoEtaria, disponivel);
         this.tema = tema;
