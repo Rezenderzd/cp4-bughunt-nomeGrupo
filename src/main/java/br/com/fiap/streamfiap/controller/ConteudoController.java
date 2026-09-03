@@ -42,9 +42,9 @@ public class ConteudoController {
     @GetMapping("/categoria/{categoria}")
     public List<Conteudo> listarPorCategoria(@PathVariable String categoria) {
         List<Conteudo> resultado = new ArrayList<>();
-        for (Conteudo c : conteudoRepository.findAll()) {
-            if (c.getCategoria() == categoria) {
-                resultado.add(c);
+        for (Conteudo conteudo : conteudoRepository.findAll()) {
+            if (conteudo.getCategoria() == categoria) {
+                resultado.add(conteudo);
             }
         }
         return resultado;
