@@ -16,8 +16,8 @@ public class Serie extends Conteudo implements Promocionavel {
         this.numeroTemporadas = numeroTemporadas;
     }
 
-    // preço da série: 4.90 por temporada
-    public double calcularPrecoAluguel(double desconto) {
+    @Override
+    public double calcularPrecoAluguel() {
         return 4.90 * numeroTemporadas;
     }
 
