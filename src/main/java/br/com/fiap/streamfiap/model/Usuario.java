@@ -37,7 +37,7 @@ public class Usuario {
 
     public Usuario alugar(Conteudo conteudo) throws ClassificacaoIndicativaException {
         if(!conteudo.isDisponivel()){
-            new ConteudoIndisponivelException("Conteudo está indisponível no moemento");
+            throw new ConteudoIndisponivelException("Conteudo está indisponível no moemento");
         }
         conteudo.setDisponivel(false);
         if (this.idade < conteudo.getClassificacaoEtaria()) {
